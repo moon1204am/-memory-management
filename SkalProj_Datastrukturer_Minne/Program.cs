@@ -10,51 +10,6 @@ namespace SkalProj_Datastrukturer_Minne
         /// <param name="args"></param>
         static void Main()
         {
-
-            //Console.WriteLine($"RecursiveOdd(1) {RecursiveOdd(1)}");
-            //Console.WriteLine($"RecursiveOdd(3) {RecursiveOdd(3)}");
-            //Console.WriteLine($"RecursiveOdd(5) {RecursiveOdd(5)}");
-
-            //Console.WriteLine();
-
-            //Console.WriteLine($"RecursiveEven(5) {RecursiveEven(1)}");
-            //Console.WriteLine($"RecursiveEven(5) {RecursiveEven(3)}");
-            //Console.WriteLine($"RecursiveEven(5) {RecursiveEven(5)}");
-
-            //Console.WriteLine();
-
-            //Console.WriteLine($"RecursiveFib(0) {RecursiveFib(0)}");
-            //Console.WriteLine($"RecursiveFib(1) {RecursiveFib(1)}");
-            //Console.WriteLine($"RecursiveFib(2) {RecursiveFib(2)}");
-            //Console.WriteLine($"(RecursiveFib(3) {RecursiveFib(3)}");
-            //Console.WriteLine($"RecursiveFib(4) {RecursiveFib(4)}");
-            //Console.WriteLine($"RecursiveFib(5) {RecursiveFib(5)}");
-            //Console.WriteLine($"RecursiveFib(10) {RecursiveFib(10)}");
-
-            //Console.WriteLine();
-
-            //Console.WriteLine($"IterativeOdd(1) {IterativeOdd(1)}");
-            //Console.WriteLine($"IterativeOdd(3) {IterativeOdd(3)}");
-            //Console.WriteLine($"IterativeOdd(5) {IterativeOdd(5)}");
-
-            //Console.WriteLine();
-
-            //Console.WriteLine($"IterativeEven(1) {IterativeEven(1)}");
-            //Console.WriteLine($"IterativeEven(3) {IterativeEven(3)}");
-            //Console.WriteLine($"IterativeEven(5) {IterativeEven(5)}");
-
-            //Console.WriteLine();
-
-            //Console.WriteLine($"IterativeFib(0) {IterativeFib(0)}");
-            //Console.WriteLine($"IterativeFib(1) {IterativeFib(1)}");
-            //Console.WriteLine($"IterativeFib(2) {IterativeFib(2)}");
-            //Console.WriteLine($"IterativeFib(3) {IterativeFib(3)}");
-            //Console.WriteLine($"IterativeFib(4) {IterativeFib(4)}");
-            //Console.WriteLine($"IterativeFib(5) {IterativeFib(5)}");
-            //Console.WriteLine($"IterativeFib(10) {IterativeFib(10)}");
-
-            //Console.WriteLine();
-
             while (true)
             {
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
@@ -143,7 +98,7 @@ namespace SkalProj_Datastrukturer_Minne
                         } 
                         else
                         {
-                            Console.WriteLine($"The string {value} did not exists in list.\n");
+                            Console.WriteLine($"The string {value} did not exist in list.\n");
                             Console.WriteLine($"Elements inside: {list.Count}\n");
                         }
                         break;
@@ -153,7 +108,6 @@ namespace SkalProj_Datastrukturer_Minne
                     default:
                         Console.WriteLine("Use only + or -.");
                         break;
-
                 }
             } while (keepShowingCommands);
         }
@@ -172,6 +126,7 @@ namespace SkalProj_Datastrukturer_Minne
             Queue<string> icaQueue = new Queue<string>();
             string? input;
             bool keepShowingCommands = true;
+
             do
             {
                 Console.WriteLine("Enter 'enqueue' to get in the queue. Or enter 'dequeue' to remove the first person in the queue.\nCommand 'q' for exit.\n");
@@ -191,7 +146,7 @@ namespace SkalProj_Datastrukturer_Minne
                             Console.WriteLine($"Queue size after dequeueing: {icaQueue.Count}\n");
                         }
                         else
-                            Console.WriteLine("Queue is empty.\n");
+                            Console.WriteLine("Queue is empty. Cannot dequeue.\n");
                         break;
                     case "q":
                         keepShowingCommands = false;
@@ -223,6 +178,11 @@ namespace SkalProj_Datastrukturer_Minne
             } while (keepShowingCommands);
         }
 
+        /// <summary>
+        /// Reverses a string with the help of a stack.
+        /// </summary>
+        /// <param name="text">the string to be reversed.</param>
+        /// <returns></returns>
         static string ReverseText(string text)
         {
             Stack<char> stack = new Stack<char>();
@@ -277,7 +237,6 @@ namespace SkalProj_Datastrukturer_Minne
                     }
                 }
             }
-            
             if (stack.Count != 0)
             {
                 isValid = false;
@@ -383,8 +342,9 @@ namespace SkalProj_Datastrukturer_Minne
     }
 
     /* Q: Hur fungerar stacken och heapen? Förklara gärna med exempel eller skiss på dess grundläggande funktion
-     * A: Stacken lagrar lokala variabler i en LIFO ordning. Så det som sist las till kan man komma åt först. Det som lagras på stacken tas bort när det inte längre används.
-     *    Heapen är en dynamisk minnesallokering och där lagras värden på referens variabler, men själva variabeln lagras på stacken. 
+     * A: Stacken lagrar lokala variabler i en LIFO ordning. Så det som sist las till kan man komma åt först. Det som lagras på stacken tas bort när det inte längre används, 
+     *    te.x. när en metod exekverat klart, kommer alla lokala variabler där i att försvinna. 
+     *    Heapen är en dynamisk minnesallokering och där lagras värden på referens variabler, men själva variabeln/pekaren till värdet lagras på stacken.
      *    Addressen finns sedan i variablen så vi kan komma åt den. För att ta bort oanvända saker från heapen används en Garbage Collector som kollar om objektet har någon referens.
      * 
     * Q: Vad är Value Types respektive Reference Types och vad skiljer dem åt?
@@ -425,4 +385,3 @@ namespace SkalProj_Datastrukturer_Minne
     *    Rekursion har också overhead, det har inte iteration.
     */
 }
-
